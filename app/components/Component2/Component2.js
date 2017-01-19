@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
-import {AppRegistry, View, Text, StyleSheet} from 'react-native'
+import {AppRegistry, View, Text, StyleSheet, TouchableHighlight, TouchableOpacity} from 'react-native'
 
 export default class Component2 extends Component {
+
+    onPress1() {
+        console.log("onPress1")
+    }
+
+    onPress2() {
+        console.log("onPress2")
+    }
+
   render() {
     return (
       <View style={styles.myView}>
@@ -10,12 +19,16 @@ export default class Component2 extends Component {
         {/* stylesheet style*/}
         <Text style={styles.myText}>Line 2</Text>
         <View style={styles.flexContainer}>
-            <View style={styles.flexV1}>
-                <Text>Flex View 1</Text>
-            </View>
-            <View style={styles.flexV2}>
-                <Text>Flex View 1</Text>
-            </View>
+            <TouchableHighlight style={styles.flexV1} onPress={this.onPress1}>
+                <View>
+                    <Text>Flex View 1</Text>
+                </View>
+            </TouchableHighlight>
+            <TouchableOpacity style={styles.flexV2} onPress={this.onPress2} underlayColor="#88888888">
+                <View>
+                    <Text>Flex View 1</Text>
+                </View>
+            </TouchableOpacity>
             <View style={styles.flexV3}>
                 <Text>Flex View 3</Text>
             </View>
