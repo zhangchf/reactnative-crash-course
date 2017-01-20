@@ -4,6 +4,7 @@ import Component1 from './app/components/Component1/Component1';
 import Component2 from './app/components/Component2/Component2';
 import Component3 from './app/components/Component3';
 import CompListView from './app/components/CompListView'
+import CompListViewWithFetch from './app/components/CompListViewWithFetch'
 
 export default class MyApp extends Component {
   render() {
@@ -17,7 +18,8 @@ export default class MyApp extends Component {
         <View style={styles.dividerLine}/>
         <Component3 />
         <View style={styles.dividerLine}/>
-        <CompListView/>
+        {/*<CompListView/>*/}
+        <CompListViewWithFetch/>
 
       </View>
     )
