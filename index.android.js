@@ -5,23 +5,25 @@ import Component2 from './app/components/Component2/Component2';
 import Component3 from './app/components/Component3';
 import CompListView from './app/components/CompListView'
 import CompListViewWithFetch from './app/components/CompListViewWithFetch'
+import CompNavigator from './app/components/CompNavigator'
 
 export default class MyApp extends Component {
   render() {
     return (
-      <View>
-        <Text>Hello MyApp</Text>
-        <View style={styles.dividerLine}/>
-        <Component1 />
-        <View style={styles.dividerLine}/>
-        <Component2 />
-        <View style={styles.dividerLine}/>
-        <Component3 />
-        <View style={styles.dividerLine}/>
-        {/*<CompListView/>*/}
-        <CompListViewWithFetch/>
+      // <View>
+      //   <Text>Hello MyApp</Text>
+      //   <View style={styles.dividerLine}/>
+      //   <Component1 />
+      //   <View style={styles.dividerLine}/>
+      //   <Component2 />
+      //   <View style={styles.dividerLine}/>
+      //   <Component3 />
+      //   <View style={styles.dividerLine}/>
+      //   <CompListView/>
+      //   <CompListViewWithFetch/>
+      // </View>
 
-      </View>
+      <CompNavigator/>
     )
   }
 }

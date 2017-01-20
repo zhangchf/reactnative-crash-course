@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {AppRegistry, View, Text, StyleSheet} from 'react-native';
+import {AppRegistry, View, Text, StyleSheet, TouchableHighlight} from 'react-native';
 import {ListView} from 'react-native'
+import {routes} from './CompNavigator'
 
-export default class CompListView extends Component {
+export default class CompListViewWithFetch extends Component {
   constructor() {
     super()
     const ds = new ListView.DataSource({
@@ -18,7 +19,7 @@ export default class CompListView extends Component {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(data)
         })
@@ -31,10 +32,21 @@ export default class CompListView extends Component {
 
   renderRow(data, sectionId, rowId) {
     return (
-      <View style={styles.row}>
-        <Text style={styles.rowText}>{data.name}</Text>
-      </View>
+      <TouchableHighlight onPress={this.onPressRow.bind(this, data)}>
+        <View style={styles.row}>
+          <Text style={styles.rowText}>{data.name}</Text>
+        </View>
+      </TouchableHighlight>
     )
+  }
+
+  onPressRow(data) {
+    console.log('onPressRow:' + data)
+    this.props.navigator.push({
+      title: 'List Detail',
+      index: 1,
+      user: data
+    })
   }
 
   render() {
@@ -59,4 +71,4 @@ const styles = StyleSheet.create({
   }
 })
 
-AppRegistry.registerComponent("CompListView", () => CompListView)
+AppRegistry.registerComponent("CompListViewWithFetch", () => CompListViewWithFetch)
